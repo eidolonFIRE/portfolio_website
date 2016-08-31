@@ -1,8 +1,23 @@
-p.articlePanel
+#articlePanel
 {
-	background-color: grey; 
-	color: white;
-	margin-left: 30px;
+	background-color: rgb(20,20,20); 
+	color: rgb(240,240,240);
+	/*font-family: Arial, Verdana, sans-serif;*/
+}
+
+.imgWhole
+{
+	border: 5px;
+	width: 80%;
+	height: 80%;
+}
+
+.imgHalf
+{
+	border: 5px;
+	margin: 0;
+	width: 40%;
+	height: 40%;
 }
 
 nav
@@ -48,6 +63,4 @@ footer
 	padding: 10px;
 	color: white;
 	background-color: darkgrey;
-
-
 }
