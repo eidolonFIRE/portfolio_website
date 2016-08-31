@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
-	$("#article1").click(function()
+	$(".artBtn").click(function()
 	{
-		$("#articlePanel").load("articles/article1/article1.html");
+		$("#articlePanel").load("articles/"+$(this).attr("value")+"/"+$(this).attr("value")+".html");
 	});
+
 
 })
