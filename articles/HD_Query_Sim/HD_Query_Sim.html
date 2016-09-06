@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<h1>Harddrive query strategy simulation</h1>
+	
+	<p>"Use it or lose it!" that is true with just about any skill; Programming especially! I haven't written much of anything lately so I decided to whip up something in my free time just to stay loose. Actually... I wrote it while bored in class...</p>
+
+	<div style="text-align: center"><img class="imgWhole" src="articles/HD_Query_Sim/images/HD_querrytester.gif"></div>
+
+	<p>This particular program is actually inspired by my "Intro to Operating Systems" class. The professor briefly discussed the various hard disk drive sector querying strategies and the pro's and con's of each. The purpose is to setup a strategy to most efficiently place priority on a jobs in a buffer list in order to decrease the average wait time of each query.</p>
+
+	<p>For this program I used the four dominant strategies showed to us in class.</p>
+	<ol>
+		<li>First come first serve. (also known as first in first out)</li>
+		<li>Circular scan look.</li>
+		<li>Scan look.</li>
+		<li>Shortest seek time first.</li>
+	</ol>
+
+	<p>The 'tick' process for the simulation goes as follows:</p>
+	<ol>
+	<li>Each strategy selects and reads the next query.</li>
+	<ol>
+		<li>Decide which one according to what the strategy dictates.</li>
+		<li>Calculate the cost to read and add it to the wait times of the rest of the queries in the </li>
+	</ol>
+	<li>A new request is generated and added to each of the buffers to keep the buffers full.</li>
+	<li>All statistics and readouts are printed to screen</li>
+	</ol>
+
+	<p>When you run the simulation, you can see the buffers of each strategy lined up at the top. The left column of each shows the sector number while the right one shows the accumulated wait time of the request. Each time a query is selected for the disk head to move to, a cost time is calculated and added to all the other entries in the buffer. This is because all of the other requests in the buffer have had to wait THAT amount of time before they are selected for next read. The cost time is calculated using the equation: X + kY = cost time. 'X' is a constant time for each read and is set to a value of 2. 'Y' is the multiplier of the distance it must move from it's current sector to the target sector. That difference is 'k'. Since Y is essentially a time scaling multiplier, it is irrelevant what value it is and therefore is set to 1 to keep the numbers relatively low.</p>
+
+	<p>Below each of the buffers there may also be some additional information that is relevant to each strategy. For instance: the SSTF strategy has a weakness of what's called "starvation". When the buffer is suffering from this, a warning message appears.</p>
+
+	<p>At the bottom of the window you can see the Mean Wait Times of each of the strategies. These numbers are just the average amount of time a given query must wait in the buffer before being read. The bar graph is 'scale to fit' meaning you have to look at the labeled minimum and maximum values of the graph in order to understand the scaling.</p>
+
+	<pre><p class="code">Program command line arguments:
+    -h           Save queries to histogram data to be viewed in excel.
+    -r number    Change the number of queries to simulate. (default 1000)
+    -d           Hide display to run the simulation at epic speeds!
+    -s           Pause each 'tick' of the program to see what's going on.
+    -b number    Change the size of the buffer. (default 8)</p></pre>
+
+	<p>Source files have been migrated to new github: <a href="https://github.com/eidolonFIRE/HD_Query_Sim">HD_Query_Sim GitHub</a></p>
+	
+
+	<div class="date">March 1, 2013</div>
+</html>

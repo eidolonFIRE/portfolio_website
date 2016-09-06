@@ -7,25 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "<!DOCTYPE html>\n<html>\n	<head>\n		<script src=\"scripts/main.js\"></script>\n	</head>\n	<body>\n		<nav>\n		</nav>\n		<article id=\"articlePanel\">\n		</article>\n	</body>\n</html>",
-			"file": "main.html",
-			"file_size": 124,
-			"file_write_time": 131170822338926954,
-			"settings":
-			{
-				"buffer_size": 166,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/main.js",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -34,12 +15,16 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 0.0,
-		"last_filter": "",
+		"height": 288.0,
+		"last_filter": "side",
 		"selected_items":
 		[
+			[
+				"side",
+				"View: Toggle Side Bar"
+			]
 		],
-		"width": 0.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -59,10 +44,16 @@
 	},
 	"expanded_folders":
 	[
-		"/home/caleb/projects/portfolio_website"
+		"/C/portfolio_website"
 	],
 	"file_history":
 	[
+		"/C/portfolio_website/index.html",
+		"/C/Users/calebj/AppData/Roaming/Sublime Text 3/Settings/SideBarEnhancements.json",
+		"/C/portfolio_website/scripts/main.js",
+		"/C/portfolio_website/css/main.css",
+		"/C/Users/calebj/Desktop/cal_notes.txt",
+		"/C/portfolio_website/main.html",
 		"/home/caleb/.config/awesome/rc.lua",
 		"/home/caleb/projects/portfolio_website/articles/article1/article1.html",
 		"/home/caleb/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
@@ -117,72 +108,13 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "main.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 166,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								166,
-								166
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 1,
-					"file": "scripts/main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -241,6 +173,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"main.c",
+				"css\\main.css"
+			]
 		],
 		"width": 0.0
 	},
@@ -269,7 +209,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 150.0,
 	"status_bar_visible": true,
 	"template_settings":
