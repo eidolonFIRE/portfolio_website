@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<h1>Sony a5100 USB Power - Part 2</h1>
+
+	<p>After using my camera's usb power supply (from a previous build), I noticed an issue with the design.</p>
+
+	<p>The problem was that when I took a picture there would be a 1/10 chance that the camera would suddenly reboot without warning (battery indicator still said full). I suspected my buck-step converter was not producing a consistent voltage if the load suddenly fluctuated.</p>
+
+	<p>Once I secured an oscilloscope I was able to see just what was happening.</p>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/Sony_a5100_USB_Power_pt2/images/cameraDropOut.png">
+	</div>
+
+	<p>The output is blue and should stay at 8v. However, you can see that when the picture is taken, the voltage drops down to 7.4v and is very noisy as the buck-step driver tries to recover the lost voltage.</p>
+
+	<p>Also note that the 5v usb battery output is under pretty heavy load during that time as it's voltage gets down to a mere 2.7v.</p>
+
+	<p>This is clearly not stable enough so a new design was needed...</p>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/Sony_a5100_USB_Power_pt2/images/build.jpg">
+	</div>
+
+	<p>What has been added is a secondary voltage regulator. Now, the buck-step converter takes the 5v 	from the usb, charges the caps up to 12v, then the LM317 regulates it back down to the desired 8v.</p>
+
+	<p>Here is what it now looks like when you snap a picture.</p>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/Sony_a5100_USB_Power_pt2/images/good.png">
+	</div>
+
+	<p>Purple is the final output while the blue is the voltage across the capacitors. Yellow is still the usb battery output.</p>
+
+	<p>Since the LM317 has a dropout voltage of 1.2v, as long as the caps don't drop below 9.2v during heavy load, the 8v final output can be easily maintained.</p>
+
+	<div class="date">February 6, 2016</div>
+</html>

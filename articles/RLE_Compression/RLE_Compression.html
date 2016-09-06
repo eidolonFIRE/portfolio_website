@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<h1>RLE Compression</h1>
+
+
+	<p>A bit of fun and relaxation...</p>
+
+	<p>For a little project I'm working on, I needed a way to compress a 2D grid of tiles into a string that could be saved into a json file. The grid is 32x32 in size and has one property per tile. If I were to explicitly save each tile as a 32bit integer, that would give me a chunk of data 4096 bytes in size. This is far from optimal so I began experimenting with easy ways to compress this data.</p>
+
+	<p>Since there are very few variations in the value of the tiles and most tiles have the same value as their adjacent tile, a form of <a href="http://en.wikipedia.org/wiki/Run-length_encoding">RLE compression</a> is a great place to start for a compression algorithm. RLE is "run length encoded" and shrinks down consecutive values that are similar. (ie 00001111 becomes 4041 indicating that there are 4 zeros and 4 ones.) This approach becomes increasingly efficient the more redundant and the data is.</p>
+
+	<p>The second step is to convert the raw compressed data to something that can be saved into a json file entry. This means that only a particular set of characters can be used to prevent the document's syntax from being broken (avoid control characters). To solve this, the raw byte data (8bit = char = base 256) will be converted to base 64 using the <a href="http://en.wikipedia.org/wiki/Base64">"base64"</a> transform. It limits the usable characters to upper and lower case letters, numbers, "+", and "/".</p>
+
+	<p>The base64 conversion is already well documented on wiki so the rest of this will be about my custom RLE compression.</p>
+
+	<p>There are three formats for the RLE blocks. Each one must fit nicely into base64 so they are either 6bits or 12bits long (12bits = 2 characters in base64). Based on what the first (and second) bit of the base64 character is, it will dictate how the following data is formatted. For example, if the first bit of the character is a 0, that character will be decoded using format 1. However, if the first bit is a 1, you will have to look at the next bit to decide if the next two characters should be interpreted using format 2 or format 3.</p>
+
+	<h2>Format 1</h2>
+	<p>This format represents a single tile of "type". Because there are 5 bits of "type", there are 2^5=32 unique values for "type".</p>
+
+	<pre><p class="code">Single Value (tile)
+    [5][4   -type-  0]
+     0  #  #  #  #  #</p></pre>
+
+	<h2>Format 2</h2>
+	<p>This is a "data" run. When decoded, it runs out a "length" of "type". There are 2^5=32 unique types and a maximum length of 2^5=32 tiles.</p>
+
+	<pre><p class="code">Data
+    [11 10][9  -type-   5][4 -length-  0]
+      1  0  #  #  #  #  #  #  #  #  #  #</p></pre>
+
+	<h2>Format 3</h2>
+	<p>This is a "skip" run. When decoded, it runs out a length of empty tiles using a default value (in this case an empty or NULL tile). The maximum length of the run is 2^10=1024 tiles.</p>
+
+	<pre><p class="code">Skip (extended run of type 0)
+    [11 10][9       -length-           0]
+      1  1  #  #  #  #  #  #  #  #  #  #</p></pre>
+
+
+	<h2>Sample Case</h2>
+	<p>The coder will scan through the hull starting at 0x, 0y and going through each column of y for every row x. The location 0,0 is at the bottom left corner of the hull when shown on the screen.</p>
+
+	<p>Hull String:</p>
+	<p class="code" style="overflow-wrap: break-word;">"zHgowWgjCgnwVBCBwcBCBwcBCBwbghCgjwXghDCgnwTBhhChigowOghhhChmglwNBDhIhjgiwNBDhIhjgiwNghhhChmglwOBhhChigowPghDCgnwUghCgjwZBCBwcBCBwcBCBwZgjCgnwSgozO"</p>
+
+	<div style="text-align: center; align-items: center;">
+		<img class="imgHalf" src="articles/RLE_Compression/images/Daemonize_sample.png">
+		<img class="imgHalf" src="articles/RLE_Compression/images/Daemonize_sample2.png">
+	</div>
+
+	<h2>Source Code:</h2>
+	<p><a href="https://github.com/eidolonFIRE/daemonize_editor1/blob/master/src/load.cpp">Loading GitHub</a></p>
+	<p><a href="https://github.com/eidolonFIRE/daemonize_editor1/blob/master/src/save.cpp">Saving GitHub</a></p>
+
+	<div class="date">June 16, 2015</div>
+</html>
