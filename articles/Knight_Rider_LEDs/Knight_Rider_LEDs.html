@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<h1>Knight Rider LEDs</h1>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/Knight_Rider_LEDs/images/lights.gif">
+	</div>
+
+	<p>This is something I did a many years back for my first lab in one of my engineering classes at VCU. I was super proud of the extremely compacted design. It is the first program I ever wrote in an assembly level language.</p>
+
+	<p>The goal of the lab was to write a program in PIC18 assembly that will display the classic Knight Rider animation on 10 LEDs. This includes dimming the trailing lights to create the sweeping effect fully.</p>
+
+	<p>There was a trick to this though, and that is that the chip only had 2 pwm modules and we weren't even allowed to use them.</p>
+
+	<p>The solution most of my fellow students came up with was to create a loop with IO writes and pauses for EVER possible state the sweeping pattern could be in. The result was a bit tedious to produce but simple to understand. Some of the files I saw were hundreds and even a couple thousand instructions long.</p>
+
+	<p>I was a bit surprised that nobody else oept'ed to take a different design route. I'm quite pleased with the result. It's a clever mechanism that consists of three main parts that all work together to generate the software pwm and sweeping pattern on the fly.</p>
+
+	<h2>Original Code:</h2>
+
+	<pre><div class="code">
+; Writen and designed By Caleb Johnson
+
+#include 
+
+  CONFIG WDT=OFF            ; Disable watchdog timer
+  CONFIG MCLRE=OFF          ; Shutoff MCLR pin
+  CONFIG DEBUG=OFF          ; Disable debugging
+  CONFIG LVP=OFF            ; Disable low-voltage programming
+  CONFIG FOSC = INTOSCIO_EC ; Use the internal oscillator
+  CONFIG PBADEN = OFF       ; Port B not A/D
+ 
+  ORG 0                ; Start code at address 0x0000
+ 
+  CLRF TRISB,0         ; set port B to outputs
+  CLRF TRISD,0         ; set port C to outputs
+ 
+  MOVLW 0x00           ; preset: 0%
+  MOVWF 0x10,0
+ 
+  MOVLW 0x01           ; preset: 25%
+  MOVWF 0x11,0
+ 
+  MOVLW 0x03           ; preset: 50%
+  MOVWF 0x12,0
+ 
+  MOVLW 0x0F           ; preset: 75%
+  MOVWF 0x13,0
+ 
+  MOVLW 0xFF           ; preset: 100%
+  MOVWF 0x14,0
+
+  CLRF FSR0H           ; clear the pointer registers
+  CLRF FSR1H
+
+delay1 EQU 0x40
+dir    EQU 0x41        ; direction of sweeping animation
+sweep  EQU 0x42        ; sweeping ... LED position
+sumB   EQU 0x43        ; \ 
+sumD   EQU 0x44        ;  \  used in updating PORT values 
+maskB  EQU 0x45        ;  /  from mem.. for PWM in part 1
+maskD  EQU 0x46        ; /
+
+LOOP:
+; ==============[  part 1  ]===============   Update all LED values from memory
+  MOVLW 0x20           ; indexL = mem location of first LED
+  MOVWF FSR0L,0
+  MOVLW 0x01           ; mask = 0000,0001
+  MOVWF maskB,0
+  MOVLW 0x10           ; mask = 0001,0000
+  MOVWF maskD,0
+  CLRF sumB,0          ; sum = 0
+  CLRF sumD,0          ; 
+ 
+Llist:                 ; loop through all 10 LEDs
+  MOVLW 0x25           ; index cross over between ports
+  CPFSGT FSR0L,0       ; Compare index with value to see 
+                       ; if it's in the first 6 LEDs
+  goto bankB 
+  
+bankD:                 ; Controlling PORT D   
+  MOVF INDF0,0         ; current LED -> WREG  ...  
+                       ;   this is reading from the 
+                       ;   indirect addressing register
+  ANDWF maskD,0        ; mask out the bit that we want
+  IORWF sumD,1,0       ; OR that bit into the sum
+  RLNCF maskD,1,0      ; move mask to next value
+  goto cont            ; skip over bankB functions
+
+bankB:                 ; Controlling PORT B
+  MOVF INDF0,0         ; current LED -> WREG  ...  
+                       ;  this is reading from the indirect addressing register
+  ANDWF maskB,0        ; mask out the bit that we want
+  IORWF sumB,1,0       ; OR that bit into the sum
+  RLNCF maskB,1,0      ; move mask to next value
+cont:
+  RLNCF INDF0,1,0      ; incriment time in LED waveform 
+                       ;   ( rotate the register )
+ 
+  INCF FSR0L,1,0       ; incriment index to next LED
+  MOVLW 0x2A           ; push to WREG the value to compare 
+                       ;   with ( mem location of last LED )
+  CPFSEQ FSR0L,0       ; run comparison to test if index is out of bounds
+  goto Llist           ; if it's still in bounds, loop
+ 
+  MOVFF sumB, PORTB    ; set port B  high/low values
+  MOVFF sumD, PORTD    ; set port C  high/low values
+ 
+; ==============[  part 2  ]===============   Time divider  +  Fader
+  DECFSZ delay1,1,0    ; step down delay1, when not 0...
+  goto LOOP            ; go to top of LOOP
+  MOVLW 0x70
+  MOVWF delay1,0       ; reset the delay ticker
+  MOVLW 0x30           ; indexL = mem location of first LED  ( waveform )
+  MOVWF FSR0L,0
+ 
+LOOPF: 
+  MOVFF INDF0, FSR1L   ; select intensity preset from memory  
+                       ;   ( INDF0 is holding LED state )
+  MOVLW 0x10
+  ADDWF FSR1L,1,0      ; move mem index INDF1 to the preset values
+  SUBWF FSR0L,1,0      ; move mem index INDF0 down to the waveforms
+  MOVFF INDF1, INDF0   ; copy the pattern into the LED waveform
+  ADDWF FSR0L,1,0      ; move mem index INDF0 back up to the states
+
+  MOVLW 0x01
+  CPFSLT INDF0,0       ; if not zero...
+  SUBWF INDF0,1,0      ; LED state decreased
+
+  INCF FSR0L,1,0       ; Incriment to next LED
+  MOVLW 0x3A           ; push to WREG the value to compare 
+                       ;  with ( mem location of last LED )
+  CPFSEQ FSR0L,0       ; run comparison to test if index is out of bounds
+  goto LOOPF           ; if it's still in bounds, loop
+ 
+ 
+; ==============[  part 3  ]===============   Sweeping Pattern
+  MOVFF sweep, FSR0L   ; select the LED to go 100%
+  MOVLW 0x30
+  ADDWF FSR0L,1,0      ; move the index up to the LED states
+  MOVLW 0x04
+  MOVWF INDF0,0        ; set the LED status of index sweep[+30] to 4
+ 
+  MOVLW 0x00
+  CPFSEQ dir,0         ; if the direction is 0...
+  goto up              ; moving in up direction, elso down
+down:
+  DECF sweep,1,0       ; sweep --
+  CPFSGT sweep,0       ; if index = 0 ...
+  SETF dir             ; change direction
+  goto LOOP
+up:
+  INCF sweep,1,0       ; sweep ++
+  MOVLW 0x09
+  CPFSLT sweep,0       ; if index = 9 ...
+  CLRF dir             ; change direction
+
+  goto LOOP            ; Return to main loop
+
+  END
+		</div>
+	</pre>
+
+
+
+	<div class="date">June 1, 2014</div>
+</html>

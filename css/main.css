@@ -40,7 +40,6 @@ footer
 
 
 /* MENU */
-
 nav
 {
 	float: left;
@@ -49,7 +48,8 @@ nav
 	border: none;
 	border-right: 2px solid rgb(100,100,100);
 	border-radius: 5px;
-
+	text-align: center;
+	font-size: 120%;
 }
 
 .artBtn
@@ -58,10 +58,9 @@ nav
 	background-color: black;
 	color: white;
 	text-align: center;
-	/*display: inline-block;*/
 	-webkit-transition-duration: 0.2s; /*safari*/
 	transition-duration: 0.2s;
-	padding: 8px;
+	padding: 6px;
 	width: 100%;
 	border: 1px solid black;
 	border-radius: 2px;
@@ -82,6 +81,12 @@ nav
 	margin: 0;
 	margin-left: 180px;
 	margin-right: 10px;
+}
+
+h2
+{
+	font-size: 130%;
+	color: rgb(180,220,255);
 }
 
 table
