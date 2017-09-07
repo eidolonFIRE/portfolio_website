@@ -3,7 +3,15 @@ $(document).ready(function(){
 	$(".artBtn").click(function()
 	{
 		$("#articlePanel").load("articles/"+$(this).attr("value")+"/"+$(this).attr("value")+".html");
-		location.hash = $(this).attr("value")
+		location.hash = $(this).attr("value");
+		window.scrollTo(0,0);
+	});
+
+	$("#profileImg").click(function()
+	{
+		$("#articlePanel").load("articles/"+$(this).attr("value")+"/"+$(this).attr("value")+".html");
+		location.hash = $(this).attr("value");
+		window.scrollTo(0,0);
 	});
 
 
@@ -22,5 +30,6 @@ $(document).ready(function(){
 	$(window).on("popstate", function() {
 		loadArticle(location.hash);
 	});
+
 
 })

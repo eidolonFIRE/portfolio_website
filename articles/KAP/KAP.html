@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<h1>KAP (Kite Aerial Photography)</h1>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/KAP/images/moneyshot.jpg">
+	</div>
+
+	<p>"KAP" involves hoisting a camera by means of a large kite. The art has been around for over a hundred years. In older times various mechanical timers were used to trigger the camera shutter, but these days we can employ all sorts of remote controlled solutions.</p>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/KAP/images/delmar.jpg">
+	</div>
+
+	<p>I took this picture near Santa Cruz, CA.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP/images/me_and_kite.jpg">
+		<img class="imgHalf" src="articles/KAP/images/reel.jpg">
+	</div>
+	<p>My 9' delta kite and homemade winding spool.</p>
+
+
+
+	<br><br><br>
+	<h2>Radio Box:</h2>
+
+	<p>The designs began with a cardboard mockup and progressed into a custom wooden box. From there, I added the stripped down electronics into the box one by one.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP/images/box_concept.jpg">
+		<img class="imgHalf" src="articles/KAP/images/box_1.jpg">
+		<img class="imgHalf" src="articles/KAP/images/box_2.jpg">
+		<img class="imgHalf" src="articles/KAP/images/box_3.jpg">
+		<img class="imgHalf" src="articles/KAP/images/box_4.jpg">
+		<img class="imgHalf" src="articles/KAP/images/box_5.jpg">
+	</div>
+	<p>The controls from left-to-right...</p>
+	<ol>
+		<li>Shutter pushbutton</li>
+		<li>Focus lock (like pushing shutter button to half-way point)</li>
+		<li>High/low rate for turning</li>
+		<li>Left/right push pool for rotating gimbal</li>
+		<li>Up/down angle of camera</li>
+		<li>Video Rx and screen power switch</li>
+		<li>Battery indicator</li>
+		<li>Main power switch</li>
+	</ol>
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP/images/box_6.jpg">
+		<img class="imgHalf" src="articles/KAP/images/box_7.jpg">
+	</div>
+
+
+	<br><br><br>
+	<h2>Gimbal:</h2>
+	<iframe src="https://www.youtube.com/embed/NNMNBXMDmDU?ecver=2" width="100%" height="720px" frameborder="0"></iframe>
+
+	<p>For the Z axis rotation, I modified a micro servo for continuous rotation.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP/images/servo_mod.jpg">
+		<img class="imgHalf" src="articles/KAP/images/servo_cont.jpg">
+	</div>
+	<p>The tilt servo goes from +40deg above horizon to -100deg horizon.</p>
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP/images/servo_tilt.jpg">
+		<img class="imgHalf" src="articles/KAP/images/gimbal_1.jpg">
+		<img class="imgHalf" src="articles/KAP/images/gimbal_2.jpg">
+	</div>
+	<p>A recent modification was to make the head of the <a href="https://en.wikipedia.org/wiki/Kite_aerial_photography#Picavet_suspension">picovet suspention</a> collapsible for easier transportation.</p>
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP/images/gimbal_mount1.jpg">
+		<img class="imgHalf" src="articles/KAP/images/gimbal_mount2.jpg">
+	</div>
+
+
+
+	<br><br><br>
+	<h2>Electronics:</h2>
+
+	<p>This circuit is a <a href="http://www.falstad.com/circuit/circuitjs.html?cct=$+1+0.000005+10.20027730826997+66+5+50%0Aa+560+336+672+336+0+3.3+0+1000000%0Aw+672+336+672+400+0%0Ar+672+400+528+400+0+100000%0Aw+528+352+560+352+0%0Aw+528+352+528+400+0%0Aw+528+352+528+272+0%0Ar+528+272+528+208+0+1000%0Ar+528+400+528+464+0+27000%0Ag+528+464+528+496+0%0AO+672+336+720+336+0%0AR+528+208+528+176+0+0+40+3.3+0+0+0.5%0Aw+560+320+464+320+0%0AR+464+320+368+320+0+1+40+0.15+3.15+0+0.5%0Ap+464+320+464+464+0+0%0Aw+464+464+496+464+0%0Aw+496+464+528+464+0%0Ap+496+352+496+464+0+0%0Aw+496+352+528+352+0%0Ao+13+32+0+2082+5.5+0.00009765625+0+-1+0+in%0Ao+16+64+0+2082+11+0.00009765625+1+-1+0+threshold%0Ao+13+64+0+2274+20+25.6+2+9+0+out+vs+in%0A">schmitt trigger</a>. It reads the pwm from the rc reciever and turns it into a binary signal that controls the camera shutter.</p>
+	<p>Information on the usb control for my sony a5100 can be found <a href="http://peterwedege.blogspot.com/2016/01/analyzing-sonys-new-multiport-protocol.html">here.</a></p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP/images/trigger_circuit.jpg">
+		<img class="imgHalf" src="articles/KAP/images/trigger.jpg">
+		<img class="imgHalf" src="articles/KAP/images/trigger_scope.jpg">
+	</div>
+
+	<p>All four of these circuit boards need to be strapped to the gimbal frame. The end result is sloppy yet functional and light weight. In future revisions I will be cleaning that up.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP/images/needs_loaded.jpg">
+		<img class="imgHalf" src="articles/KAP/images/sloppy.jpg">
+	</div>
+
+	<p>To see what the camera feed from the ground I use the same <a href="https://www.amazon.com/gp/product/B01LZROVNP/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1">TX</a> and <a href="https://www.amazon.com/gp/product/B01H36AIGY/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1">RX</a> drone racers use displaying on a <a href="https://www.amazon.com/gp/product/B0045IIZKU/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1">cheap car-reversing lcd</a>.</p>
+	<p>On the gimbal, <a href="https://hobbyking.com/en_us/micro-hdmi-to-a-v-converter-w-remote-shutter-function-for-sony-a5000-a6000-and-gopro-3-series.html?___store=en_us"> this device</a> is used to downsample the hdmi signal to composite analog. To prevent blocking the usb port on the camera, <a href="https://www.amazon.com/gp/product/B00S6IBNIQ/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1">this short hdmi extender</a> was also used.</p>
+	<p>Here you can see the whole video system operational with airgap.</p>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/KAP/images/electronics.jpg">
+	</div>
+
+
+
+	<br><br><br>
+	<h2>Stratospool:</h2>
+
+	<p>This particular spool design is call a <a href="http://robroy.dyndns.info/KAP/KiteReels/Stratospool/history.php">"stratospool"</a>. It's a design that's been around since the 70's and has been adapted by many kite enthusiests over the years. I gleaned a lot of info from the <a href="http://arch.ced.berkeley.edu/kap/discuss/">KAP forum</a> before designing and building my own.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP/images/reel_trace.jpg">
+		<img class="imgHalf" src="articles/KAP/images/reel_parts.jpg">
+		<img class="imgHalf" src="articles/KAP/images/reel_hardware.jpg">
+		<img class="imgHalf" src="articles/KAP/images/reel_done.jpg">
+	</div>
+
+
+	<div class="date">Aug 14, 2017</div>
+</html>
