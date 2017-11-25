@@ -17,6 +17,8 @@ body
 	background-color: var(--whiteColor);
 	font-family: Arial, Verdana, sans-serif;
 	float: none;
+	margin: 0;
+	padding: 0;
 }
 
 
@@ -26,6 +28,7 @@ header
 	/*overflow: hidden;*/
 	display: flex;
 	flex-flow: row nowrap;
+	flex-grow: 2;
 	justify-content: center;
 	align-content: center;
 	align-items: center;
@@ -77,14 +80,12 @@ footer
 	font-size: 70%;
 	font-style: italic;
 	word-spacing: 5px;
-	padding: 10px;
 	color: var(--fontLight);
 	background-color: var(--medGrey);
-	border-radius: 1px;
-	/*clear: both;*/
 	position: fixed;
 	z-index: 10;
-	height: 5px;
+	padding: 5px;
+	height: 15px;
 	bottom: 0;
 	width: 100%;
 }
@@ -169,10 +170,9 @@ table
 	width: 90%;
 	height: 90%;
 }
-.imgWhole:hover {
+/*.imgWhole:hover {
 	transform:scale(1.5,1.5);
-	/*transform-origin:0 0;*/
-}
+}*/
 
 .imgHalf
 {
@@ -181,10 +181,9 @@ table
 	width: 45%;
 	height: 45%;
 }
-.imgHalf:hover {
+/*.imgHalf:hover {
 	transform:scale(2,2);
-	/*transform-origin:0 0;*/
-}
+}*/
 
 .imgHalf, .imgWhole
 {
