@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<h1>Christmas Tree Lights!</h1>
+
+	<iframe width=100% height="540" src="https://www.youtube.com/embed/1uMaZpnG2I8" frameborder="0" allowfullscreen></iframe>
+
+	<p>No going back to regular tree lights after these... </p>
+
+	<a href="https://github.com/eidolonFIRE/Christmas-Lights">Source Code on Github!</a>
+
+	<p>The lights are individually addressable led strips. They work by feeding the data to the first led and the data is pushed from one led to the next all the way down the chain using shift registers. I'm using a raspberry pi A+ for the controller because it's what I had on hand.</p>
+
+	<p>The pi is running a websocket server and listening for commands to switch patterns. The webpage is hosted by a PC on the same network.</p>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/Christmas_Tree_Lights/images/lit.jpg">
+	</div>
+
+	<p>To bump the 3.3v signal voltage from the rPi up to 5v, I used this diode method.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/Christmas_Tree_Lights/images/circuit.png">
+	</div>
+
+	<h2>Main Supplies:</h2>
+	<ul>
+		<li><a href="https://www.raspberrypi.org/">Raspberry Pi A+</a></li>
+		<li><a href="https://smile.amazon.com/dp/B01H04YAIQ/ref=cm_sw_r_cp_ep_dp_4OlhAb0ZSTQJT">ws2812b LED strips</a></li>
+		<li><a href="https://smile.amazon.com/gp/product/B01LZRIWZD/ref=od_aui_detailpages01?ie=UTF8&psc=1">200watt 5v supply</a></li>
+	</ul>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/Christmas_Tree_Lights/images/unlit.jpg">
+	</div>
+
+	<div class="date">Nov 27, 2017</div>
+	<br>
+</html>

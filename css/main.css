@@ -149,10 +149,14 @@ a
 	max-width: 55em;
 }
 
-
+h1
+{
+	text-align: center;
+	font-size: 4vw;
+}
 h2
 {
-	font-size: 130%;
+	font-size: 2vw;
 	color: var(--fontDark);
 }
 
