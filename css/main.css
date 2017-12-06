@@ -66,7 +66,7 @@ header
 {
 	width: 10vw;
 	border-radius: 50%;
-	margin-left: 10vw;
+	margin-left: 9.5vw;
 	margin-top: 1vw;
 	position: fixed;
 	border: 0.4vw solid var(--uniqueColor);
@@ -77,15 +77,14 @@ header
 footer
 {
 	text-align: center;
-	font-size: 70%;
+	font-size: 0.6rem;
 	font-style: italic;
-	word-spacing: 5px;
+	word-spacing: 0.5rem;
 	color: var(--fontLight);
 	background-color: var(--medGrey);
 	position: fixed;
-	z-index: 10;
-	padding: 5px;
-	height: 15px;
+	padding: 0.5rem;
+	height: 0.5rem;
 	bottom: 0;
 	width: 100%;
 }
@@ -100,9 +99,12 @@ nav
 	border-right: 2px solid var(--darkGrey);
 	text-align: center;
 	font-weight: bold;
+
 	position: fixed;
 	padding-top: 2vh;
 	padding-bottom: 2vh;
+	height: 60vh;
+	overflow-y: auto;
 }
 
 a
@@ -221,7 +223,8 @@ table
 
 
 /*RESPONSIVE BITCHES!!!*/
-@media only screen and (max-width: 35rem), only screen and (max-height: 40rem) 
+/*@media only screen and (max-width: 35rem), only screen and (max-height: 40rem) */
+@media only screen and (aspect-ratio: 1/1), only screen and (orientation: portrait) 
 {
 	nav 
 	{
@@ -232,10 +235,16 @@ table
 		display: inline-flex;
 
 		flex-flow: row wrap;
+		justify-content: center;
 
 		border-right: none;
 		border-bottom: 2px solid var(--darkGrey);
 	}	
+
+	header
+	{
+		margin-right: 10vw;
+	}
 
 	a
 	{
@@ -251,9 +260,10 @@ table
 	{
 		width: 10vw;
 		border-radius: 50%;
-		margin-left: 1vw;
+		margin-left: 2vw;
 		margin-top: 1vw;
-		/*position: relative;*/
+		position: relative;
+		float: left;
 		border: 0.4vw solid var(--uniqueColor);
 		box-shadow: 0 15px 70px -20px black;
 	}
