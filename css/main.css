@@ -115,6 +115,7 @@ a
 
 .artBtn
 {
+	font-size: 1rem;
 	font-weight: bold;
 	background-color: rgba(250,250,250,0);
 	color: var(--fontDark);
@@ -229,6 +230,7 @@ table
 	nav 
 	{
 		max-width: 100%;
+		height: auto;
 
 		position: relative;
 		font-size: 80%;
@@ -239,11 +241,22 @@ table
 
 		border-right: none;
 		border-bottom: 2px solid var(--darkGrey);
-	}	
+	}
 
 	header
 	{
 		margin-right: 10vw;
+	}
+
+	footer
+	{
+		font-size: 0.5rem;
+		height: 1vh;
+	}
+
+	#footerLink
+	{
+		font-size: 0.5rem;
 	}
 
 	a
@@ -251,9 +264,17 @@ table
 		width: 100%;
 	}
 
+	.btnLabels
+	{
+		font-size: 4vw;
+	}
+
 	.artBtn
 	{
+		font-size: 3vw;
 		width: auto;
+		background-color: rgb(170,170,170);
+		margin-top: 0.2em;
 	}
 
 	#profileImg
@@ -274,10 +295,10 @@ table
 		background-color: var(--shadowDepth);
 		box-shadow: 0 0 10vw 5vw var(--shadowDepth);
 		margin-top: 10vw;
-		margin-left: auto;
-		margin-right: auto;
+		margin-left: 1vw;
+		margin-right: 1vw;
 		/*width: 50vw;*/
-		width: 100%;
-		max-width: 100%;
+		width: 97vw;
+		max-width: 97vw;
 	}
 }
