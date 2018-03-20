@@ -3,7 +3,17 @@
 	<head>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+		<script
+			src="https://code.jquery.com/jquery-1.12.4.min.js"
+			integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			crossorigin="anonymous">
+		</script>
+		<script
+			src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
+			integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="
+			crossorigin="anonymous">
+		</script>
 		<script src="scripts/main.js"></script>
 		<link href='https://fonts.googleapis.com/css?family=Rubik Mono One' rel='stylesheet'>
 	</head>
@@ -26,36 +36,36 @@
 		<nav>
 			<a class="btnLabels">Builds</a>
 			<div>
-				<button class="artBtn" value="Christmas_Tree_Lights">LED Tree</button>
-				<button class="artBtn" value="KAP">KAP</button>
-				<button class="artBtn" value="IEEE_Robot">IEEE Robot</button>
-				<button class="artBtn" value="VCU_Robot">VCU Robot</button>
-				<button class="artBtn" value="Electric_Bike">E-Bike</button>
-				<button class="artBtn" value="Mini_Coilgun">Mini Coilgun</button>
-				<button class="artBtn" value="Sony_a5100_USB_Power">Sony Power Part 1</button>
-				<button class="artBtn" value="Sony_a5100_USB_Power_pt2">Sony Power Part 2</button>
-				<button class="artBtn" value="Stir_Plate">Stir Plate</button>
+				<button class="artBtn" rel="tooltip" value="Christmas_Tree_Lights"    title ="Python,     RaspberryPi,     WebSockets">LED Tree</button>
+				<button class="artBtn" rel="tooltip" value="KAP"                      title ="Lua,     Python,     Sockets,     Threads">KAP</button>
+				<button class="artBtn" rel="tooltip" value="IEEE_Robot"               title ="Robotics,     PCB design">IEEE Robot</button>
+				<button class="artBtn" rel="tooltip" value="VCU_Robot"                title ="C,     MicroControllers,     PCB design">VCU Robot</button>
+				<button class="artBtn" rel="tooltip" value="Electric_Bike"            title ="Electronics,     Mechanics">E-Bike</button>
+				<button class="artBtn" rel="tooltip" value="Mini_Coilgun"             title ="Electronics">Mini Coilgun</button>
+				<button class="artBtn" rel="tooltip" value="Sony_a5100_USB_Power"     title ="Power Management">Sony Power Part 1</button>
+				<button class="artBtn" rel="tooltip" value="Sony_a5100_USB_Power_pt2" title ="Oscilloscope">Sony Power Part 2</button>
+				<button class="artBtn" rel="tooltip" value="Stir_Plate"               title ="Electronics">Stir Plate</button>
 			</div>
 
 			<br>
 
 			<a class="btnLabels">Code</a>
 			<div>
-			
-				<button class="artBtn" value="HD_Query_Sim">HD Query Sim</button>
-				<button class="artBtn" value="RLE_Compression">RLE Compression</button>
-				<button class="artBtn" value="Math_Interpreter">Math Interpreter</button>
-				<button class="artBtn" value="Knight_Rider_LEDs">Knight Rider LEDs</button>
+				<button class="artBtn" rel="tooltip" value="Elevator_Sim"      title ="Python,     Algorithms,     Multiprocessing">Elevator Sim</button>
+				<button class="artBtn" rel="tooltip" value="HD_Query_Sim"      title ="C++,     Algorithms,     Queue Theory">HD Query Sim</button>
+				<button class="artBtn" rel="tooltip" value="RLE_Compression"   title ="C++,     Algorithms">RLE Compression</button>
+				<button class="artBtn" rel="tooltip" value="Math_Interpreter"  title ="C++,     Algorithms">Math Interpreter</button>
+				<button class="artBtn" rel="tooltip" value="Knight_Rider_LEDs" title ="Asm Lang,     Dynamic Programming">Knight Rider LEDs</button>
 			</div>
 
 			<br>
 			<a class="btnLabels">Art</a>
 			<div>
 				
-				<button class="artBtn" value="Magical_Keepsake_Box">Keepsake Box</button>
-				<button class="artBtn" value="Pipe_Carving">Pipe Carving</button>
-				<button class="artBtn" value="Blender_Bot">Blender Bot</button>
-				<!-- <button class="artBtn" value="Pano_McAfee">Pano: McAfee</button> -->
+				<button class="artBtn" rel="tooltip" value="Magical_Keepsake_Box" title ="Carpentry,     Magnets">Keepsake Box</button>
+				<button class="artBtn" rel="tooltip" value="Pipe_Carving"         title ="Art">Pipe Carving</button>
+				<button class="artBtn" rel="tooltip" value="Blender_Bot"          title ="Blender">Blender Bot</button>
+				<!-- <button class="artBtn" rel="tooltip" value="Pano_McAfee">Pano: McAfee</button> -->
 			</div>
 		</nav>
 

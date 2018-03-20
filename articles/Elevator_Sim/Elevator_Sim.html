@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<h1>Elevator Simulation</h1>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/Elevator_Sim/images/Traditional-3e-8f.gif">
+	</div>
+
+	<p>I was reading Don Norman's <a href="https://www.amazon.com/Design-Everyday-Things-Revised-Expanded/dp/0465050654/ref=sr_1_1?ie=UTF8&qid=1521523774&sr=8-1&keywords=design+of+everyday+things">The Design of Everyday Things</a> and he mentioned the superiority of "destination" based elevators over the traditional type (traditional having floor selection inside the elevator). I was immediately inspired to write a framework for simulating elevator strategies and comparing them.</p>
+
+	<p>Above, you can see a simulation being rendered for 3 elevators and 8 floors. Various metrics are shown live for each floor such as: call buttons, who's waiting for what floor, which elevator is stopping there, etc.</p>
+
+	<p>Using <a href="https://docs.python.org/2/library/multiprocessing.html">python multiprocessing</a>, I am able to run a large batch job to get data for all building configurations. Each configuration is run dozens of times to get accurate statistical results.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/Elevator_Sim/images/AvgTrip.png">
+		<img class="imgHalf" src="articles/Elevator_Sim/images/LobbyShare.png">
+	</div>
+
+	<p>In a future re-visit of this project, I will add a destination based strategy to the simulation and compare the results. In the mean time, source files can be found on <a href="https://github.com/eidolonFIRE/Elevator_Sim">Elevator_Sim GitHub</a>. Don't judge it too hashly as I hammered this project out over the course of a few evenings.</p>
+
+	<div class="date">March 20, 2018</div>
+	<br>
+</html>
