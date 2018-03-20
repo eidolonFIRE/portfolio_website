@@ -122,7 +122,7 @@ a
 #tooltip
 {
 	white-space: pre;
-	position: absolute;
+	position: fixed;
 
 	color: var(--fontLight);
 
@@ -136,9 +136,6 @@ a
 	border-radius: 2px;
 	padding-left: 1em;
 	padding-right: 1em;
-
-	float: left;
-
 	box-shadow: 0 0.3em 3em -0.5em black;
 }
 

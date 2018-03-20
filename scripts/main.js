@@ -22,11 +22,13 @@ $(document).ready(function(){
 	
 			var init_tooltip = function()
 			{
-				var pos_left = target.offset().left + target.outerWidth()
-				var pos_top  = target.offset().top;
+				var doc = document.documentElement;
+				var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+				var pos_left = target.offset().left + target.outerWidth();
+				var pos_top  = target.offset().top - top;
 
-				var width = tooltip.outerWidth()
-				tooltip.css("width", 0)
+				var width = tooltip.outerWidth();
+				tooltip.css("width", 0);
 
 				if ($( window ).width() > $(window).height())
 					tooltip.css( { left: pos_left, top: pos_top } ).animate( { width: width}, 100 );
