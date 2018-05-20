@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<h1>KAP</h1>
+	<h2 style="text-align: center;">(Kite Aerial Photography)</h2>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/KAP2/images/money_shot.jpg">
+	</div>
+
+	<p>KAP is simply strapping a camera to a kite and taking aerial photos. The art has been around for over a hundred years.</p>
+	<p>In older times clever mechanical timers were used to trigger the camera shutter. I opted for more modern approach with electronics.</p>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/KAP2/images/delmar.jpg">
+	</div>
+
+	<p style="text-align: center">Santa Cruz, CA.</p>
+	<br>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP2/images/me_and_kite.jpg">
+		<img class="imgHalf" src="articles/KAP2/images/reel.jpg">
+	</div>
+	<p style="text-align: center">My 9' delta kite and homemade winding spool.</p>
+
+
+	<br>
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP2/images/demo.gif">
+	</div>
+
+
+
+	<br><br><br>
+	<h2>Radio Box:</h2>
+
+	<p>The designs began with a cardboard mockup and progressed into a custom wooden box. From there, I added the stripped down electronics and large battery. In the second revision of the controller I added a raspberry pi zero, lots of switches, and a small OLED screen for displaying live information such as battery voltages, elapsed flight time, wifi status, etc.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP2/images/box_concept.jpg">
+		<img class="imgHalf" src="articles/KAP2/images/box_3.jpg">
+	</div>
+
+	<p>A toggle switch is used to change the <a href="https://www.amazon.com/gp/product/B0045IIZKU/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1">screen</a>'s feed from the video <a href="https://www.amazon.com/gp/product/B01H36AIGY/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1">receiver</a> to the raspberry pi's gui.</p>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/KAP2/images/guts.jpg">
+	</div>
+
+
+
+
+	<br><br><br>
+	<h2>Gimbal:</h2>
+
+	<div style="text-align: center">
+		<img class="imgWhole" src="articles/KAP2/images/gimbal_1.jpg">
+		<!-- <img class="imgHalf" src="articles/KAP2/images/gimbal_close.jpg"> -->
+	</div>
+
+	<p>The gimbal plugs into the camera with both the <a href="http://peterwedege.blogspot.com/2016/01/analyzing-sonys-new-multiport-protocol.html">Sony proprietry USB</a> and also <a href="https://www.amazon.com/gp/product/B00S6IBNIQ/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1">micro HMDI</a>. The video is downsampled using <a href="https://hobbyking.com/en_us/micro-hdmi-to-a-v-converter-w-remote-shutter-function-for-sony-a5000-a6000-and-gopro-3-series.html?___store=en_us">this device</a> and transmitted with <a href="https://www.amazon.com/gp/product/B01LZROVNP/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1">this transmitter.</a></p> 
+
+	<p>The gimbal is suspended from the kite string using a <a href="https://en.wikipedia.org/wiki/Kite_aerial_photography#Picavet_suspension">picovet suspention</a>. It's a purely mechanical solution to auto leveling the gimbal.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP2/images/gimbal_mount1.jpg">
+		<img class="imgHalf" src="articles/KAP2/images/gimbal_mount2.jpg">
+	</div>
+
+	<p>Micro servos were used for both control axis. The Z axis servo is modified for continuous rotation.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP2/images/servo_cont.jpg">
+		<img class="imgHalf" src="articles/KAP2/images/servo_tilt.jpg">
+	</div>
+
+
+
+	<br><br><br>
+	<h2>Stratospool:</h2>
+
+	<p>This particular spool is called a <a href="http://robroy.dyndns.info/KAP/KiteReels/Stratospool/history.php">"stratospool"</a>. It's a design that's been around since the 70's and has been adapted by many kite enthusiests over the years. I gleaned a lot of info from the <a href="http://arch.ced.berkeley.edu/kap/discuss/">KAP forum</a> before designing and building my own.</p>
+
+	<div style="text-align: center">
+		<img class="imgHalf" src="articles/KAP2/images/reel_hardware.jpg">
+		<img class="imgHalf" src="articles/KAP2/images/reel_trace.jpg">
+		<img class="imgHalf" src="articles/KAP2/images/reel_parts.jpg">
+		<img class="imgHalf" src="articles/KAP2/images/reel_done.jpg">
+	</div>
+
+
+	<div class="date">May 20, 2018</div>
+	<br>
+</html>
